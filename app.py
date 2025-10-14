@@ -1,15 +1,14 @@
 import streamlit as st
 import pickle
 
-
-
-
-with open('model.pkl', 'rb') as f:
-    model = pickle.load(f)
-
-with open('vectorizer.pkl', 'rb') as f:
-    vectorizer = pickle.load(f)
-
+try:
+    with open('model.pkl', 'rb') as f:
+        model = pickle.load(f)
+    with open('vectorizer.pkl', 'rb') as f:
+        vectorizer = pickle.load(f)
+except Exception as e:
+    st.error(f"Error loading model or vectorizer: {e}")
+    st.stop()
 
 # Streamlit UI
 st.title("Fake News Detection")
