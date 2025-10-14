@@ -2,8 +2,12 @@ import streamlit as st
 import pickle
 
 # Load model and vectorizer
-with open('model.pkl', 'rb') as f:
+def new_func(f):
     model = pickle.load(f)
+    return model
+
+with open('model.pkl', 'rb') as f:
+    model = new_func(f)
 
 with open('vectorizer.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
