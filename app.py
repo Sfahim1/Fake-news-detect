@@ -1,12 +1,15 @@
 import streamlit as st
 import pickle
 
-# Load model and vectorizer
+
+
+
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 with open('vectorizer.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
+
 
 # Streamlit UI
 st.title("Fake News Detection")
