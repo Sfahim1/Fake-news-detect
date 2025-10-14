@@ -17,7 +17,11 @@ if st.button("Predict"):
     if user_input:
         input_tfidf = vectorizer.transform([user_input])
         prediction = model.predict(input_tfidf)
-        result = "Fake News" if prediction[0] == 1 else "Real News"
-        st.success(f"Prediction: {result}")
+
+        # prediction == 1 -> Real, prediction == 0 -> Fake
+        if prediction[0] == 1:
+            st.success("The news is Real!")
+        else:
+            st.error("The news is Fake!")
     else:
-        st.warning("Please enter some text.")
+        st.warning("Please enter some text to analyze.")
